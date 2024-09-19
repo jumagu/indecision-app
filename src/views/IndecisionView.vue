@@ -1,24 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
+import { useChat } from '@/composables/useChat';
 import ChatMessages from '@/components/chat/ChatMessages.vue';
 import ChatMessageBox from '@/components/chat/ChatMessageBox.vue';
-import type { IChatMessage } from '@/interfaces/chat-message.interface';
 
-const messages = ref<IChatMessage[]>([
-  {
-    id: new Date().getTime(),
-    media: '',
-    message: 'Hola?',
-    isSender: true,
-  },
-  {
-    id: new Date().getTime(),
-    media: '',
-    message: 'NO',
-    isSender: false,
-  },
-]);
+const { messages, isLoading, sendMessageHandler } = useChat();
 </script>
 
 <template>
@@ -28,9 +13,9 @@ const messages = ref<IChatMessage[]>([
     </div>
 
     <!-- Messages Section -->
-    <ChatMessages :messages="messages" />
+    <ChatMessages :messages="messages" :is-loading="isLoading" />
 
     <!-- Message Box -->
-    <ChatMessageBox />
+    <ChatMessageBox @send-message="sendMessageHandler" />
   </div>
 </template>
