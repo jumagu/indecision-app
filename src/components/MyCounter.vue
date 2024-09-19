@@ -32,7 +32,7 @@ const decrement = () => {
 <template>
   <section>
     <h3>{{ props.text }}</h3>
-    <h3>Counter: {{ counter }}</h3>
+    <h3 data-testid="counter-heading">Counter: {{ counter }}</h3>
     <h3>Square: {{ squareCounter }}</h3>
   </section>
 
