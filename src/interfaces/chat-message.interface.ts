@@ -1,6 +1,6 @@
 export interface IChatMessage {
   id: number;
-  media: string;
+  media?: string;
   message: string;
   isSender: boolean;
 }
