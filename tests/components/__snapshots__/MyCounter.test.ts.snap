@@ -4,7 +4,7 @@ exports[`Tests in MyCounter component > Should match snapshot 1`] = `
 "<section data-v-0352012b="">
   <h3 data-v-0352012b="">Hello World</h3>
   <h3 data-v-0352012b="" data-testid="counter-heading">Counter: 5</h3>
-  <h3 data-v-0352012b="">Square: 5</h3>
+  <h3 data-v-0352012b="">Square: 25</h3>
 </section>
 <div data-v-0352012b=""><button data-v-0352012b="">-1</button><button data-v-0352012b="">+1</button></div>"
 `;
