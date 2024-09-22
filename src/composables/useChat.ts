@@ -47,9 +47,14 @@ export const useChat = () => {
     });
   };
 
+  const clearChat = () => {
+    messages.value = [];
+  };
+
   return {
     messages,
     isLoading,
+    clearChat,
     sendMessageHandler,
   };
 };
