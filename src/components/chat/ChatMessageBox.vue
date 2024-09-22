@@ -27,8 +27,9 @@ const sendMessage = () => {
       @keypress.enter="sendMessage"
     />
     <button
-      class="bg-blue-500 text-white rounded-full p-2 ml-2 hover:bg-blue-600 focus:outline-none"
+      class="bg-blue-500 text-white rounded-full p-2 ml-2 hover:bg-blue-600 focus:outline-none disabled:opacity-80 disabled:pointer-events-none"
       @click="sendMessage"
+      :disabled="!message.trim().length"
     >
       <SendIcon />
     </button>
