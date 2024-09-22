@@ -1,13 +1,15 @@
 import { ref } from 'vue';
+import { useStorage } from '@vueuse/core';
 
 import { delay } from '@/utils/delay';
-
 import type { IChatMessage } from '@/interfaces/chat-message.interface';
 import type { IYesNoAPIResponse } from '@/interfaces/yesno-api-response.interface';
 
 export const useChat = () => {
   const isLoading = ref(false);
-  const messages = ref<IChatMessage[]>([]);
+  // const messages = ref<IChatMessage[]>([]);
+  // ! Breaks the tests for useChat because messages is now a ref based on localStorage which is globally used by the app
+  const messages = useStorage('messages', [] as IChatMessage[]);
 
   const fetchResponse = async () => {
     const res = await fetch('https://yesno.wtf/api');
